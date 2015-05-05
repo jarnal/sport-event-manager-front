@@ -1,6 +1,5 @@
 var ServerPlayerActions = require('../actions/ServerPlayerActions');
 var ServerConstants = require('../constants/ServerConstants');
-router = require('../router');
 
 var PlayerAPIUtils = {
     
@@ -45,13 +44,11 @@ var PlayerAPIUtils = {
             },
             success:function( pResponse ){
                 localStorage.setItem('tok', pResponse.access_token);
-                localStorage.setItem('ref_tok', pResponse.refresh_token);
+                localStorage.setItem('ref_tok', pResponse.refresh_token); 
                 
-                console.log(router);
-                
-                /*if(afterLogin)
-                    PlayerActions.login_successfull();
-                PlayerActions.token_successfull();*/
+                if(afterLogin)
+                    ServerPlayerActions.login_successfull();
+                ServerPlayerActions.token_successfull();
             },
             error:function(error){
                 PlayerActions.token_error(error);
@@ -78,10 +75,10 @@ var PlayerAPIUtils = {
                 localStorage.setItem('tok', pResponse.access_token);
                 localStorage.setItem('ref_tok', pResponse.refresh_token);
                 
-                PlayerActions.token_successfull();
+                ServerPlayerActions.token_successfull();
             },
             error:function(error){
-                PlayerActions.token_error(error);
+                ServerPlayerActions.token_error(error);
             }
         });
     }

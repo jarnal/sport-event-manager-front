@@ -14,6 +14,7 @@ var routes = (
     <Route name="inbox" handler={Inbox}/>
     <Route name="calendar" handler={Calendar}/>
     <Route name="login" handler={Login}/>
+    <Route name="dashboard" handler={Dashboard}/>
     <DefaultRoute handler={Dashboard}/>
   </Route>
 );

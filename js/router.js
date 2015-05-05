@@ -1,10 +1,12 @@
-var React = require('react');
-var Router = require('react-router');
-var routes = require('./routes');
+'use strict';
 
 var router;
 
- module.exports = {
+module.exports = {
+  getCurrentPath() {
+    return router.getCurrentPath();
+  },
+
   makePath(to, params, query) {
     return router.makePath(to, params, query);
   },
@@ -29,9 +31,6 @@ var router;
     router.run(render);
   }
 };
-
-// By the time route config is require()-d,
-// require('./router') already returns a valid object
 
 var routes = require('./routes'),
     Router = require('react-router');

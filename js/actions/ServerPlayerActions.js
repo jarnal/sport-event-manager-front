@@ -2,8 +2,6 @@ var ActionTypeConstants = require('../constants/ActionTypeConstants');
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var router = require('../router');
 
-console.log(router);
-
 var ServerPlayerActions = {
     
     login_successfull:function(id_user){
@@ -11,9 +9,7 @@ var ServerPlayerActions = {
             actionType: ActionTypeConstants.LOGIN_SUCCESSFULL,
             id_user:id_user
         });
-        
-        console.log(router);
-        //router.transitionTo('dashboard');
+        router.transitionTo('dashboard');
     },
     
     login_error:function(error){
