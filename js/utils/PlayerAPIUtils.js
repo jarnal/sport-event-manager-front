@@ -19,6 +19,8 @@ var PlayerAPIUtils = {
                 localStorage.setItem('us_id', pResponse.id);
                 localStorage.setItem('us_ak', pResponse.api_key);
                 
+                ServerPlayerActions.login_successfull();
+                
                 this.getToken(true);
             }, this),
             error:function(error){
@@ -45,9 +47,7 @@ var PlayerAPIUtils = {
             success:function( pResponse ){
                 localStorage.setItem('tok', pResponse.access_token);
                 localStorage.setItem('ref_tok', pResponse.refresh_token); 
-                
-                if(afterLogin)
-                    ServerPlayerActions.login_successfull();
+                    
                 ServerPlayerActions.token_successfull();
             },
             error:function(error){

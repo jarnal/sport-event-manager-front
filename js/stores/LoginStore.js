@@ -19,7 +19,19 @@ var LoginStore = assign({}, EventEmitter.prototype, {
         this.removeListener(CHANGE_EVENT, callback);   
     },
     
-    dispatcherIndex:AppDispatcher.register(function(payload){
+    getToken: function () {
+        return localStorage.getItem("us_token");
+    },
+    
+    setToken: function() {
+        
+    },
+    
+    loggedIn: function(){
+        return !!this.getToken();   
+    }
+    
+    /*dispatcherIndex:AppDispatcher.register(function(payload){
         var action = payload.action;
         switch(action.actionType){
             case ActionTypeConstants.LOGIN_SUCCESSFULL:
@@ -29,7 +41,7 @@ var LoginStore = assign({}, EventEmitter.prototype, {
         LoginStore.emitChange();
         
         return true;
-    })
+    })*/
     
 });
 

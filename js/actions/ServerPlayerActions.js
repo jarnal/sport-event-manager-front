@@ -9,7 +9,7 @@ var ServerPlayerActions = {
             actionType: ActionTypeConstants.LOGIN_SUCCESSFULL,
             id_user:id_user
         });
-        router.transitionTo('dashboard');
+        //router.transitionTo('dashboard');
     },
     
     login_error:function(error){
@@ -19,9 +19,11 @@ var ServerPlayerActions = {
         });
     },
     
-    token_successfull:function(){
+    token_successfull:function(token, refreshToken){
         AppDispatcher.handleServerAction({
-            actionType: ActionTypeConstants.TOKEN_SUCCESSFULL
+            actionType: ActionTypeConstants.TOKEN_SUCCESSFULL,
+            token: token,
+            refreshToken, refreshToken
         });
     },
     

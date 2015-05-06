@@ -1,13 +1,18 @@
 var React = require('react');
+var RestrictedAccesMixin = require('../mixins/RestrictedAccesMixin');
+var SessionStore = require('../stores/SessionStore');
 
-var Calendar = React.createClass({
-  render: function () {
-    return (
-      <div>
-        <span>Calendar</span>
-      </div>
-    );
-  }
+var Inbox = React.createClass({
+    
+    mixins: [RestrictedAccesMixin],
+    
+    render: function () {
+        return (
+            <div>
+                <span>Calendar</span>
+            </div>
+        );
+    }
 });
 
-module.exports = Calendar;
+module.exports = Inbox;
