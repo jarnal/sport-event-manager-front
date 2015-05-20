@@ -5,12 +5,14 @@ var SetIntervalMixin = {
     
     statics: {
         willTransitionTo: function (transition) {
-            var nextPath = router.getCurrentQuery().nextPath;
-            console.log( nextPath );
             
+            /*var nextPath = router.getCurrentQuery().nextPath;
+            console.log( nextPath );
+            */
             if(!SessionStore.loggedIn()) {
                 router.transitionTo('login');
             }
+            
         }
     },
     
